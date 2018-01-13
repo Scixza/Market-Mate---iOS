@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1402CAD4200A90D9000AB8E1 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402CAD3200A90D9000AB8E1 /* Market.swift */; };
 		1452B3B7200842AF008E6E73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452B3B6200842AF008E6E73 /* AppDelegate.swift */; };
 		1452B3B9200842AF008E6E73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452B3B8200842AF008E6E73 /* ViewController.swift */; };
 		1452B3BC200842AF008E6E73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1452B3BA200842AF008E6E73 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1402CAD3200A90D9000AB8E1 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		1452B3B3200842AF008E6E73 /* MarketMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1452B3B6200842AF008E6E73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1452B3B8200842AF008E6E73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				1452B3B6200842AF008E6E73 /* AppDelegate.swift */,
 				1452B3B8200842AF008E6E73 /* ViewController.swift */,
+				1402CAD3200A90D9000AB8E1 /* Market.swift */,
 				1452B3BA200842AF008E6E73 /* Main.storyboard */,
 				1452B3C0200842AF008E6E73 /* Assets.xcassets */,
 				1452B3C2200842AF008E6E73 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 				1452B3B9200842AF008E6E73 /* ViewController.swift in Sources */,
 				1452B3B7200842AF008E6E73 /* AppDelegate.swift in Sources */,
 				1452B3BF200842AF008E6E73 /* MarketMate.xcdatamodeld in Sources */,
+				1402CAD4200A90D9000AB8E1 /* Market.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
