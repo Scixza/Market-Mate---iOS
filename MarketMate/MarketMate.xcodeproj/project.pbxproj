@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1402CAD4200A90D9000AB8E1 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402CAD3200A90D9000AB8E1 /* Market.swift */; };
 		1402CAD6200C038B000AB8E1 /* VC_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402CAD5200C038B000AB8E1 /* VC_Ext.swift */; };
+		1402CAE2200C1ADD000AB8E1 /* BroadMarket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1402CAE1200C1ADD000AB8E1 /* BroadMarket.swift */; };
 		1452B3B7200842AF008E6E73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452B3B6200842AF008E6E73 /* AppDelegate.swift */; };
 		1452B3B9200842AF008E6E73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452B3B8200842AF008E6E73 /* ViewController.swift */; };
 		1452B3BC200842AF008E6E73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1452B3BA200842AF008E6E73 /* Main.storyboard */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		1402CAD3200A90D9000AB8E1 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		1402CAD5200C038B000AB8E1 /* VC_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC_Ext.swift; sourceTree = "<group>"; };
+		1402CADC200C168B000AB8E1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1402CAE1200C1ADD000AB8E1 /* BroadMarket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadMarket.swift; sourceTree = "<group>"; };
 		1452B3B3200842AF008E6E73 /* MarketMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1452B3B6200842AF008E6E73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1452B3B8200842AF008E6E73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,11 +44,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1402CAD7200C0EAD000AB8E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1402CADC200C168B000AB8E1 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1452B3AA200842AE008E6E73 = {
 			isa = PBXGroup;
 			children = (
 				1452B3B5200842AF008E6E73 /* MarketMate */,
 				1452B3B4200842AF008E6E73 /* Products */,
+				1402CAD7200C0EAD000AB8E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +76,7 @@
 				1452B3B8200842AF008E6E73 /* ViewController.swift */,
 				1402CAD5200C038B000AB8E1 /* VC_Ext.swift */,
 				1402CAD3200A90D9000AB8E1 /* Market.swift */,
+				1402CAE1200C1ADD000AB8E1 /* BroadMarket.swift */,
 				1452B3BA200842AF008E6E73 /* Main.storyboard */,
 				1452B3C0200842AF008E6E73 /* Assets.xcassets */,
 				1452B3C2200842AF008E6E73 /* LaunchScreen.storyboard */,
@@ -106,6 +119,11 @@
 					1452B3B2200842AF008E6E73 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -145,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1402CAE2200C1ADD000AB8E1 /* BroadMarket.swift in Sources */,
 				1452B3B9200842AF008E6E73 /* ViewController.swift in Sources */,
 				1402CAD6200C038B000AB8E1 /* VC_Ext.swift in Sources */,
 				1452B3B7200842AF008E6E73 /* AppDelegate.swift in Sources */,

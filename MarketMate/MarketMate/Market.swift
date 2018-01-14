@@ -13,14 +13,16 @@ import MapKit
 class Market: NSObject, MKAnnotation{
     //Variables of the Market Class
     let name: String?
+    let id: Int
     let locDescription: String?
     let address: String?
     let vendors: String?
     let coordinate: CLLocationCoordinate2D
     
     //Creating an initializer for the market class
-    init(name: String, locDescription: String, address: String, vendors: String,coordinate: CLLocationCoordinate2D) {
+    init(name: String, id: Int, locDescription: String, address: String, vendors: String, coordinate: CLLocationCoordinate2D) {
         self.name = name
+        self.id = id
         self.locDescription = locDescription
         self.address = address
         self.vendors = vendors

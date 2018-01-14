@@ -11,6 +11,9 @@ import MapKit
 
 class ViewController: UIViewController {
 
+    /* Member Variables */
+    var usda: Array = [Market]()
+    var broadMarket: Array = [BroadMarket]()
 
     /* IBOutlets */
     @IBOutlet weak var MapKitView: MKMapView!
@@ -22,8 +25,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //showing user location on the map
+        MapKitView.showsUserLocation = true
+        
+        //parsing USDA Database
+        self.validateAndParseData(zip: "32832")
+        
         //Calling Method to Add markets to the MapView
         self.addMarkets()
+        
+        //Requestion Access to user Location When the app needs it
+        //self.requestLocation()
     }
 
 }
