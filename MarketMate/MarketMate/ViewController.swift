@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         //showing user location on the map
-        MapKitView.showsUserLocation = true
+        //MapKitView.showsUserLocation = true
         
         //parsing USDA Database
         self.validateAndParseData(zip: "32832")

@@ -81,15 +81,21 @@ extension ViewController{
                                 // adding the Broad Market into the MarketInZip Array
                                     self.broadMarket.append(BroadMarket.init(id: id, marketName: name))
                             }
-                            print(self.broadMarket.count)
+                            
+//                            for market in self.broadMarket{
+//                                guard let i = market as? [String: Any],
+//                                    let address = i["Address"] as? String,
+//                                    let products = i["Products"] as? String,
+//                                    let schedule = i["Schedule"] as? String
+//                                    else{continue}
+//
+//                                //adding parsed BroadMarket Details to usda Array as a new Market
+//                                self.usda.append(Market.init(name: self.broadMarket[1].name, id: self.broadMarket, address: String, products: String, coordinate: CLLocationCoordinate2D))
+//                            }
                         }
                     } catch  {
                         print(error.localizedDescription)
                     }
-                    //updating the table view in the main thread
-//                    DispatchQueue.main.async {
-//                        self.MapKitView.re
-//                    }
                })
                 //resuming the task
                 task.resume()
