@@ -30,7 +30,7 @@ extension ViewController{
         
         
         //Creating A Test Market to add to the map
-        let testMarket = Market(name: "Test Market", id: 12, locDescription: "A Test Description", address: "A Test Address", vendors: "15", coordinate: CLLocationCoordinate2D( latitude: 28.5962, longitude: -81.3064))
+        let testMarket = Market(name: "Test Market", id: "12", address: "Test Address", products: "Test Products", coordinate: CLLocationCoordinate2D( latitude: 28.5962, longitude: -81.3064))
         //Adding the test market above to the map
         MapKitView.addAnnotation(testMarket)
         
@@ -82,6 +82,7 @@ extension ViewController{
                                     self.broadMarket.append(BroadMarket.init(id: id, marketName: name))
                             }
                             
+                            print("Market Count: \(self.broadMarket.count)")
 //                            for market in self.broadMarket{
 //                                guard let i = market as? [String: Any],
 //                                    let address = i["Address"] as? String,
