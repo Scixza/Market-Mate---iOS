@@ -30,4 +30,13 @@ class Market: NSObject, MKAnnotation{
         
         super.init()
     }
+    
+    //Annotations need a "Title" In our case its the name of the farmers market
+    var title: String? {
+        return name
+    }
+    //Annotations also need a Subtitle, we'll use addres
+    var subtitle: String? {
+        return address
+    }
 }
