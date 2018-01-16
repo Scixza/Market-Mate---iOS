@@ -25,17 +25,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //showing user location on the map
-        //MapKitView.showsUserLocation = true
-        
         //parsing USDA Database
         self.validateAndParseData(zip: "32832")
         
-        //Calling Method to Add markets to the MapView
-        self.addMarkets()
-        
-        //Requestion Access to user Location When the app needs it
-        //self.requestLocation()
+    }
+    
+    //Requesting Access to users location as well as showing the users location on the map (Updated Info.plist Aswell)
+    let locationManager = CLLocationManager()
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            MapKitView.showsUserLocation = true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationAuthorizationStatus()
     }
 
 }

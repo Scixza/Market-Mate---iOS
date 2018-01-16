@@ -16,14 +16,16 @@ class Market: NSObject, MKAnnotation{
     let id: String
     let products: String
     let address: String?
+    let schedule: String
     let coordinate: CLLocationCoordinate2D
     
     //Creating an initializer for the market class
-    init(name: String, id: String, address: String, products: String, coordinate: CLLocationCoordinate2D) {
+    init(name: String, id: String, address: String, products: String, schedule: String, coordinate: CLLocationCoordinate2D) {
         self.name = name
         self.id = id
         self.address = address
         self.products = products
+        self.schedule = schedule
         self.coordinate = coordinate
         
         super.init()
