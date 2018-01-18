@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         //parsing USDA Database
         self.validateAndParseData(zip: "32832")
         
+        //telling the annotations to use the custom one created in the Annotation.Swift
+        MapKitView.register(MarketMarkerView.self,
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
     //Requesting Access to users location as well as showing the users location on the map (Updated Info.plist Aswell)
@@ -47,21 +50,18 @@ class ViewController: UIViewController {
 
 }
 
+
+// creating a callout for each annotation. Works like a table view cell, you have to create one, then deqeue it and reuse it!
 extension ViewController: MKMapViewDelegate {
-    // 1
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        // 2
         guard let annotation = annotation as? Market else { return nil }
-        // 3
         let identifier = "marker"
         var view: MKMarkerAnnotationView
-        // 4
         if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             as? MKMarkerAnnotationView {
             dequeuedView.annotation = annotation
             view = dequeuedView
         } else {
-            // 5
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)

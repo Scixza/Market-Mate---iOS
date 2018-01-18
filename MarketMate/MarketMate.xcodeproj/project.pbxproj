@@ -18,6 +18,7 @@
 		1452B3BF200842AF008E6E73 /* MarketMate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1452B3BD200842AF008E6E73 /* MarketMate.xcdatamodeld */; };
 		1452B3C1200842AF008E6E73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1452B3C0200842AF008E6E73 /* Assets.xcassets */; };
 		1452B3C4200842AF008E6E73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1452B3C2200842AF008E6E73 /* LaunchScreen.storyboard */; };
+		14870FFF20102056001FB01A /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14870FFE20102056001FB01A /* Annotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		1452B3C0200842AF008E6E73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1452B3C3200842AF008E6E73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1452B3C5200842AF008E6E73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14870FFE20102056001FB01A /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				1452B3B8200842AF008E6E73 /* ViewController.swift */,
 				1402CAD5200C038B000AB8E1 /* VC_Ext.swift */,
 				1402CAD3200A90D9000AB8E1 /* Market.swift */,
+				14870FFE20102056001FB01A /* Annotation.swift */,
 				1402CAE1200C1ADD000AB8E1 /* BroadMarket.swift */,
 				1452B3BA200842AF008E6E73 /* Main.storyboard */,
 				1452B3C0200842AF008E6E73 /* Assets.xcassets */,
@@ -174,6 +177,7 @@
 				1402CAD6200C038B000AB8E1 /* VC_Ext.swift in Sources */,
 				1452B3B7200842AF008E6E73 /* AppDelegate.swift in Sources */,
 				1452B3BF200842AF008E6E73 /* MarketMate.xcdatamodeld in Sources */,
+				14870FFF20102056001FB01A /* Annotation.swift in Sources */,
 				1402CAD4200A90D9000AB8E1 /* Market.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

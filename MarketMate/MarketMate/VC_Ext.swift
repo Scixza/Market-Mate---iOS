@@ -12,6 +12,7 @@ import CoreLocation
 
 extension ViewController{
     
+    
     // Method to create new annotations and adding them to the map.
     func addMarkets(){
         
