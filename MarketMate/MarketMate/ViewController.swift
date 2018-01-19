@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+
 class ViewController: UIViewController {
 
     /* Member Variables */
@@ -17,6 +18,7 @@ class ViewController: UIViewController {
 
     /* IBOutlets */
     @IBOutlet weak var MapKitView: MKMapView!
+    @IBOutlet weak var hamburgerButton: UIBarButtonItem!
     
     /* IBActions */
     
@@ -25,6 +27,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         MapKitView.delegate = self
+        
+        //initializing hamburger menu
+        sideMenu()
+        
         //parsing USDA Database
         self.validateAndParseData(zip: "32832")
         

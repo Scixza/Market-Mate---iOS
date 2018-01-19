@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06C07B55922C53A1822F269DE8AB9183 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		22871C13C434D97A532C8DDDC1588595 /* JTHamburgerButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CD21EF12B7B99B589376FB6A2BC4641 /* JTHamburgerButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5536E90A8DA7F197E2211F5A5F588237 /* JTHamburgerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 490D162ADDCA4434F7F73C61D35EF8F0 /* JTHamburgerButton.m */; };
+		72FAFD878555597BF21531C97233D3C6 /* Pods-MarketMate-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FBE911ECEF8006209BDBFDC8D5BFE8C4 /* Pods-MarketMate-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7ACCD9CD4B07E3F687C9BCDAAFB4DAF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		82AA16E08B597E368E0BA25D62CC7ACF /* JTHamburgerButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 113F5D99BBF6C578184B97A54C66B8A0 /* JTHamburgerButton-dummy.m */; };
+		AD55C3F1550D8B84F28F9EFC47ACEF96 /* Pods-MarketMate-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9C5A12AF66B66408FE7162E142487 /* Pods-MarketMate-dummy.m */; };
+		C26D28CB47B18709982A3A85103D932E /* JTHamburgerButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C5046E16B91AD93531B7FD274C28F30E /* JTHamburgerButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5C70F7AEBAB9117B0785C8C2EEE5B95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 017EADE162177B6848C6BAC9FD24260D;
+			remoteInfo = JTHamburgerButton;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		113F5D99BBF6C578184B97A54C66B8A0 /* JTHamburgerButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JTHamburgerButton-dummy.m"; sourceTree = "<group>"; };
+		2CD21EF12B7B99B589376FB6A2BC4641 /* JTHamburgerButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTHamburgerButton-umbrella.h"; sourceTree = "<group>"; };
+		490D162ADDCA4434F7F73C61D35EF8F0 /* JTHamburgerButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTHamburgerButton.m; path = JTHamburgerButton/JTHamburgerButton.m; sourceTree = "<group>"; };
+		5DB9AAB3C3A17C583AA0FCBDC2FFE704 /* Pods-MarketMate-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MarketMate-frameworks.sh"; sourceTree = "<group>"; };
+		5EF13FE0E7F8D6CEB73B8A5954B4EE2B /* Pods-MarketMate.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MarketMate.modulemap"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6CE6773E4D8BD8E0151D837AB11D529C /* JTHamburgerButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTHamburgerButton-prefix.pch"; sourceTree = "<group>"; };
+		85A8E0B36E82FE94A00BC793221B224B /* Pods-MarketMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MarketMate.debug.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A02AE16092C3B7C607265D86CC97D3E6 /* Pods-MarketMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MarketMate.release.xcconfig"; sourceTree = "<group>"; };
+		A7C9C5A12AF66B66408FE7162E142487 /* Pods-MarketMate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MarketMate-dummy.m"; sourceTree = "<group>"; };
+		ABAFE995C4F7ED46333798E728B60D24 /* Pods-MarketMate-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MarketMate-resources.sh"; sourceTree = "<group>"; };
+		B61B18C269D5DED4A7A25DF77DE8FCA7 /* JTHamburgerButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JTHamburgerButton.modulemap; sourceTree = "<group>"; };
+		BA32F8FF5F56FC9CC284FFB09638C6FF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5046E16B91AD93531B7FD274C28F30E /* JTHamburgerButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTHamburgerButton.h; path = JTHamburgerButton/JTHamburgerButton.h; sourceTree = "<group>"; };
+		C728DE67F5187582A6C60872BA9B1B27 /* JTHamburgerButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTHamburgerButton.xcconfig; sourceTree = "<group>"; };
+		D912DC40537A246C1793F281574CBA3F /* JTHamburgerButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JTHamburgerButton.framework; path = JTHamburgerButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1E67DEEF9E622BDF28C007DC56A4E6D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3F884AB63F2A1C9B02E1A6F0DF459CF /* Pods-MarketMate-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MarketMate-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E692B2BD2EC2F2255E4192F8EB1AEDA2 /* Pods-MarketMate-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MarketMate-acknowledgements.plist"; sourceTree = "<group>"; };
+		EAF0387CCE0CC17B8B26B412F7E59AB5 /* Pods_MarketMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MarketMate.framework; path = "Pods-MarketMate.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBE911ECEF8006209BDBFDC8D5BFE8C4 /* Pods-MarketMate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MarketMate-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2278CDC8D61693D1A572FADD125EF213 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ACCD9CD4B07E3F687C9BCDAAFB4DAF3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		543008C289CABEEF6762E0F40FB5435F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06C07B55922C53A1822F269DE8AB9183 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22E75CC9EFFDF4D51EB9B2C2DF0598F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D912DC40537A246C1793F281574CBA3F /* JTHamburgerButton.framework */,
+				EAF0387CCE0CC17B8B26B412F7E59AB5 /* Pods_MarketMate.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		289A01CD85B6D7F10CE175FB7373911C /* JTHamburgerButton */ = {
+			isa = PBXGroup;
+			children = (
+				C5046E16B91AD93531B7FD274C28F30E /* JTHamburgerButton.h */,
+				490D162ADDCA4434F7F73C61D35EF8F0 /* JTHamburgerButton.m */,
+				3A42C5F837499B8B6C683248E14304AD /* Support Files */,
+			);
+			name = JTHamburgerButton;
+			path = JTHamburgerButton;
+			sourceTree = "<group>";
+		};
+		3A42C5F837499B8B6C683248E14304AD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA32F8FF5F56FC9CC284FFB09638C6FF /* Info.plist */,
+				B61B18C269D5DED4A7A25DF77DE8FCA7 /* JTHamburgerButton.modulemap */,
+				C728DE67F5187582A6C60872BA9B1B27 /* JTHamburgerButton.xcconfig */,
+				113F5D99BBF6C578184B97A54C66B8A0 /* JTHamburgerButton-dummy.m */,
+				6CE6773E4D8BD8E0151D837AB11D529C /* JTHamburgerButton-prefix.pch */,
+				2CD21EF12B7B99B589376FB6A2BC4641 /* JTHamburgerButton-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JTHamburgerButton";
+			sourceTree = "<group>";
+		};
+		54CB9651AE0DCBAE21CF2FCE9F4785D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				289A01CD85B6D7F10CE175FB7373911C /* JTHamburgerButton */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				54CB9651AE0DCBAE21CF2FCE9F4785D1 /* Pods */,
+				22E75CC9EFFDF4D51EB9B2C2DF0598F7 /* Products */,
+				7E3D40F53C44D5802A6DFBC5635E5705 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7E3D40F53C44D5802A6DFBC5635E5705 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF14BCECE3356F95D1F8FE10208944F9 /* Pods-MarketMate */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF14BCECE3356F95D1F8FE10208944F9 /* Pods-MarketMate */ = {
+			isa = PBXGroup;
+			children = (
+				E1E67DEEF9E622BDF28C007DC56A4E6D /* Info.plist */,
+				5EF13FE0E7F8D6CEB73B8A5954B4EE2B /* Pods-MarketMate.modulemap */,
+				E3F884AB63F2A1C9B02E1A6F0DF459CF /* Pods-MarketMate-acknowledgements.markdown */,
+				E692B2BD2EC2F2255E4192F8EB1AEDA2 /* Pods-MarketMate-acknowledgements.plist */,
+				A7C9C5A12AF66B66408FE7162E142487 /* Pods-MarketMate-dummy.m */,
+				5DB9AAB3C3A17C583AA0FCBDC2FFE704 /* Pods-MarketMate-frameworks.sh */,
+				ABAFE995C4F7ED46333798E728B60D24 /* Pods-MarketMate-resources.sh */,
+				FBE911ECEF8006209BDBFDC8D5BFE8C4 /* Pods-MarketMate-umbrella.h */,
+				85A8E0B36E82FE94A00BC793221B224B /* Pods-MarketMate.debug.xcconfig */,
+				A02AE16092C3B7C607265D86CC97D3E6 /* Pods-MarketMate.release.xcconfig */,
+			);
+			name = "Pods-MarketMate";
+			path = "Target Support Files/Pods-MarketMate";
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2E7BB640994D7F1CB48358D2FFDA0E38 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72FAFD878555597BF21531C97233D3C6 /* Pods-MarketMate-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8ED4C5A37D42B71E1617102A6862ACE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22871C13C434D97A532C8DDDC1588595 /* JTHamburgerButton-umbrella.h in Headers */,
+				C26D28CB47B18709982A3A85103D932E /* JTHamburgerButton.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		017EADE162177B6848C6BAC9FD24260D /* JTHamburgerButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9846F84027607EC1B489EC1A745A63D4 /* Build configuration list for PBXNativeTarget "JTHamburgerButton" */;
+			buildPhases = (
+				E0CE9F8F641E1E33805E9ABE67DD6F60 /* Sources */,
+				543008C289CABEEF6762E0F40FB5435F /* Frameworks */,
+				B8ED4C5A37D42B71E1617102A6862ACE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JTHamburgerButton;
+			productName = JTHamburgerButton;
+			productReference = D912DC40537A246C1793F281574CBA3F /* JTHamburgerButton.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		621B7D288DBD76E779ECC0C81CEDF135 /* Pods-MarketMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9063F234BCCE2B2E5F51FDBC0A7AA24 /* Build configuration list for PBXNativeTarget "Pods-MarketMate" */;
+			buildPhases = (
+				292CE20C8B91A1051E1AE990CF83FEDB /* Sources */,
+				2278CDC8D61693D1A572FADD125EF213 /* Frameworks */,
+				2E7BB640994D7F1CB48358D2FFDA0E38 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BD6ABE2643C3286DC8847B65982A778 /* PBXTargetDependency */,
+			);
+			name = "Pods-MarketMate";
+			productName = "Pods-MarketMate";
+			productReference = EAF0387CCE0CC17B8B26B412F7E59AB5 /* Pods_MarketMate.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 22E75CC9EFFDF4D51EB9B2C2DF0598F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				017EADE162177B6848C6BAC9FD24260D /* JTHamburgerButton */,
+				621B7D288DBD76E779ECC0C81CEDF135 /* Pods-MarketMate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		292CE20C8B91A1051E1AE990CF83FEDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD55C3F1550D8B84F28F9EFC47ACEF96 /* Pods-MarketMate-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0CE9F8F641E1E33805E9ABE67DD6F60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82AA16E08B597E368E0BA25D62CC7ACF /* JTHamburgerButton-dummy.m in Sources */,
+				5536E90A8DA7F197E2211F5A5F588237 /* JTHamburgerButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BD6ABE2643C3286DC8847B65982A778 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JTHamburgerButton;
+			target = 017EADE162177B6848C6BAC9FD24260D /* JTHamburgerButton */;
+			targetProxy = A5C70F7AEBAB9117B0785C8C2EEE5B95 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		41E06C80ED982A8E09A5F380906C7252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85A8E0B36E82FE94A00BC793221B224B /* Pods-MarketMate.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MarketMate/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MarketMate/Pods-MarketMate.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MarketMate;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4E618363AAC326360862A4BC4CABB6A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C728DE67F5187582A6C60872BA9B1B27 /* JTHamburgerButton.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JTHamburgerButton/JTHamburgerButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JTHamburgerButton/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JTHamburgerButton/JTHamburgerButton.modulemap";
+				PRODUCT_NAME = JTHamburgerButton;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7C07ED8089F70A31B83996A8910D7F18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		98F29E7567052F62660DDD7069ADF73C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		A496BFB41E6B905C5AA44914441DBCF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A02AE16092C3B7C607265D86CC97D3E6 /* Pods-MarketMate.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MarketMate/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MarketMate/Pods-MarketMate.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MarketMate;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C4A770D222AAEF43E2119D5EDDE1C7DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C728DE67F5187582A6C60872BA9B1B27 /* JTHamburgerButton.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JTHamburgerButton/JTHamburgerButton-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JTHamburgerButton/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JTHamburgerButton/JTHamburgerButton.modulemap";
+				PRODUCT_NAME = JTHamburgerButton;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C07ED8089F70A31B83996A8910D7F18 /* Debug */,
+				98F29E7567052F62660DDD7069ADF73C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9846F84027607EC1B489EC1A745A63D4 /* Build configuration list for PBXNativeTarget "JTHamburgerButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E618363AAC326360862A4BC4CABB6A1 /* Debug */,
+				C4A770D222AAEF43E2119D5EDDE1C7DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9063F234BCCE2B2E5F51FDBC0A7AA24 /* Build configuration list for PBXNativeTarget "Pods-MarketMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41E06C80ED982A8E09A5F380906C7252 /* Debug */,
+				A496BFB41E6B905C5AA44914441DBCF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

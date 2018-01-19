@@ -19,6 +19,9 @@
 		1452B3C1200842AF008E6E73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1452B3C0200842AF008E6E73 /* Assets.xcassets */; };
 		1452B3C4200842AF008E6E73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1452B3C2200842AF008E6E73 /* LaunchScreen.storyboard */; };
 		14870FFF20102056001FB01A /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14870FFE20102056001FB01A /* Annotation.swift */; };
+		148710032011541C001FB01A /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148710022011541B001FB01A /* SWRevealViewController.m */; };
+		14871006201156A8001FB01A /* VC_Ext_Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14871005201156A8001FB01A /* VC_Ext_Menu.swift */; };
+		D38DD8FE1BB3A539C5C72107 /* Pods_MarketMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9346488E5FC6983E1703F4D4 /* Pods_MarketMate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,13 @@
 		1452B3C3200842AF008E6E73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1452B3C5200842AF008E6E73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14870FFE20102056001FB01A /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		148710002011541B001FB01A /* MarketMate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarketMate-Bridging-Header.h"; sourceTree = "<group>"; };
+		148710012011541B001FB01A /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		148710022011541B001FB01A /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		14871005201156A8001FB01A /* VC_Ext_Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC_Ext_Menu.swift; sourceTree = "<group>"; };
+		9346488E5FC6983E1703F4D4 /* Pods_MarketMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8EE36E2EA95D5569D5C55DC /* Pods-MarketMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketMate/Pods-MarketMate.debug.xcconfig"; sourceTree = "<group>"; };
+		AAD8B35ADEF2C7E09623A1A0 /* Pods-MarketMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketMate/Pods-MarketMate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +55,28 @@
 			files = (
 				1402CAE5200E98CE000AB8E1 /* MapKit.framework in Frameworks */,
 				1402CAE4200E98C5000AB8E1 /* CoreLocation.framework in Frameworks */,
+				D38DD8FE1BB3A539C5C72107 /* Pods_MarketMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		117F1EE9C47ACAF32F6EA8E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8EE36E2EA95D5569D5C55DC /* Pods-MarketMate.debug.xcconfig */,
+				AAD8B35ADEF2C7E09623A1A0 /* Pods-MarketMate.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1402CAD7200C0EAD000AB8E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				1402CAE3200E98C5000AB8E1 /* CoreLocation.framework */,
 				1402CADC200C168B000AB8E1 /* MapKit.framework */,
+				9346488E5FC6983E1703F4D4 /* Pods_MarketMate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -66,6 +87,7 @@
 				1452B3B5200842AF008E6E73 /* MarketMate */,
 				1452B3B4200842AF008E6E73 /* Products */,
 				1402CAD7200C0EAD000AB8E1 /* Frameworks */,
+				117F1EE9C47ACAF32F6EA8E2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,19 +102,31 @@
 		1452B3B5200842AF008E6E73 /* MarketMate */ = {
 			isa = PBXGroup;
 			children = (
+				1487100720115B73001FB01A /* Classes */,
 				1452B3B6200842AF008E6E73 /* AppDelegate.swift */,
 				1452B3B8200842AF008E6E73 /* ViewController.swift */,
 				1402CAD5200C038B000AB8E1 /* VC_Ext.swift */,
-				1402CAD3200A90D9000AB8E1 /* Market.swift */,
-				14870FFE20102056001FB01A /* Annotation.swift */,
-				1402CAE1200C1ADD000AB8E1 /* BroadMarket.swift */,
+				14871005201156A8001FB01A /* VC_Ext_Menu.swift */,
 				1452B3BA200842AF008E6E73 /* Main.storyboard */,
+				148710012011541B001FB01A /* SWRevealViewController.h */,
+				148710022011541B001FB01A /* SWRevealViewController.m */,
+				148710002011541B001FB01A /* MarketMate-Bridging-Header.h */,
 				1452B3C0200842AF008E6E73 /* Assets.xcassets */,
 				1452B3C2200842AF008E6E73 /* LaunchScreen.storyboard */,
 				1452B3C5200842AF008E6E73 /* Info.plist */,
 				1452B3BD200842AF008E6E73 /* MarketMate.xcdatamodeld */,
 			);
 			path = MarketMate;
+			sourceTree = "<group>";
+		};
+		1487100720115B73001FB01A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1402CAD3200A90D9000AB8E1 /* Market.swift */,
+				14870FFE20102056001FB01A /* Annotation.swift */,
+				1402CAE1200C1ADD000AB8E1 /* BroadMarket.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,9 +136,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1452B3C8200842AF008E6E73 /* Build configuration list for PBXNativeTarget "MarketMate" */;
 			buildPhases = (
+				54B36302B73EC2222E9673F5 /* [CP] Check Pods Manifest.lock */,
 				1452B3AF200842AF008E6E73 /* Sources */,
 				1452B3B0200842AF008E6E73 /* Frameworks */,
 				1452B3B1200842AF008E6E73 /* Resources */,
+				F75635B3006A6FDD80C5B133 /* [CP] Embed Pods Frameworks */,
+				EEBF28FE370E00A4F06A73DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -127,6 +164,7 @@
 				TargetAttributes = {
 					1452B3B2200842AF008E6E73 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -167,14 +205,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		54B36302B73EC2222E9673F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarketMate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEBF28FE370E00A4F06A73DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarketMate/Pods-MarketMate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F75635B3006A6FDD80C5B133 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MarketMate/Pods-MarketMate-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JTHamburgerButton/JTHamburgerButton.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTHamburgerButton.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarketMate/Pods-MarketMate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1452B3AF200842AF008E6E73 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14871006201156A8001FB01A /* VC_Ext_Menu.swift in Sources */,
 				1402CAE2200C1ADD000AB8E1 /* BroadMarket.swift in Sources */,
 				1452B3B9200842AF008E6E73 /* ViewController.swift in Sources */,
 				1402CAD6200C038B000AB8E1 /* VC_Ext.swift in Sources */,
+				148710032011541C001FB01A /* SWRevealViewController.m in Sources */,
 				1452B3B7200842AF008E6E73 /* AppDelegate.swift in Sources */,
 				1452B3BF200842AF008E6E73 /* MarketMate.xcdatamodeld in Sources */,
 				14870FFF20102056001FB01A /* Annotation.swift in Sources */,
@@ -313,14 +407,18 @@
 		};
 		1452B3C9200842AF008E6E73 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8EE36E2EA95D5569D5C55DC /* Pods-MarketMate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F86JU6NTWJ;
 				INFOPLIST_FILE = MarketMate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.seanlohman.MarketMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarketMate/MarketMate-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -328,14 +426,17 @@
 		};
 		1452B3CA200842AF008E6E73 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAD8B35ADEF2C7E09623A1A0 /* Pods-MarketMate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F86JU6NTWJ;
 				INFOPLIST_FILE = MarketMate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.seanlohman.MarketMate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarketMate/MarketMate-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
