@@ -11,6 +11,7 @@ import UIKit
 
 extension ViewController{
     
+    //Function for HamburgerMenu, setting the Reveal Width, selector and the gesture recognizer for when the button is pressed.
     func sideMenu(){
         
         if revealViewController() != nil {
