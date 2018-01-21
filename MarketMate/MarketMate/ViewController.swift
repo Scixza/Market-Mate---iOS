@@ -12,7 +12,7 @@ import MapKit
 
 class ViewController: UIViewController {
 
-    /* Member Variables */
+    /* varber Variables */
     var usda: Array = [Market]()
     var broadMarket: Array = [BroadMarket]()
 
@@ -75,5 +75,24 @@ extension ViewController: MKMapViewDelegate {
         }
         return view
     }
+    //This method gets ran when the information button is pressed on the Annotation's Callout
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        let market = view.annotation as! Market
+        
+        performSegue(withIdentifier: "callout", sender: market)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! CalloutViewController
+        
+        destination.market = sender as? Market
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+    }
+    
 }
 
