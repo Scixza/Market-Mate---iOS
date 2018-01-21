@@ -8,13 +8,16 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     /* varber Variables */
     var usda: Array = [Market]()
     var broadMarket: Array = [BroadMarket]()
+    var initalZip: String = ""
+    let locationManager = CLLocationManager()
 
     /* IBOutlets */
     @IBOutlet weak var MapKitView: MKMapView!
@@ -27,31 +30,72 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         MapKitView.delegate = self
+        locationManager.delegate = self
+        //Getting the best accuracy for the user, aswell as starting to track the users location
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
         //initializing hamburger menu
         sideMenu()
         
+
         //parsing USDA Database
-        self.validateAndParseData(zip: "32832")
+        //self.validateAndParseData(zip: initalZip)
         
-        //telling the annotations to use the custom one created in the Annotation.Swift
-        MapKitView.register(MarketMarkerView.self,
-                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
+    //Centering Map on the initial location. TO:DO - get the users location and replace hardcoded location in ViewDidLoad
+//    func centerMapOnLocation(location: CLLocation) {
+//
+//    }
+    
     //Requesting Access to users location as well as showing the users location on the map (Updated Info.plist Aswell)
-    let locationManager = CLLocationManager()
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            MapKitView.showsUserLocation = true
-        } else {
-            locationManager.requestWhenInUseAuthorization()
+
+//    func checkLocationAuthorizationStatus() {
+//        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+//            MapKitView.showsUserLocation = true
+//            //Calling Method to display and zoom into the users location
+//            //centerMapOnLocation(location: MapKitView.userLocation.location!)
+//        } else {
+//            locationManager.requestWhenInUseAuthorization()
+//        }
+//    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        
+        //Setting the Default Zoom radius to 2500 so the user isnt presented with a map of the united states on launch
+        let regionRadius: CLLocationDistance = 2500
+        let myLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(myLocation, regionRadius, regionRadius)
+        MapKitView.setRegion(coordinateRegion, animated: true)
+        
+        self.MapKitView.showsUserLocation = true
+        
+        CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+            if error != nil{
+                print("Error while trying to reverse geocode zip")
+            }else{
+                if let place = placemark?[0]{
+                    if ("\(String(describing: place.postalCode))") != self.initalZip {
+                        print("\(place.postalCode!) is not equal to \(self.initalZip)")
+                        self.usda.removeAll()
+                        self.validateAndParseData(zip: ("\(place.postalCode!)"))
+                        self.initalZip = ("\(place.postalCode!)")
+                    }
+
+                    print(place.postalCode!)
+                }
+                
+            }
+            
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        checkLocationAuthorizationStatus()
+        //checkLocationAuthorizationStatus()
     }
 
 }
