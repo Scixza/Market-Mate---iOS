@@ -22,6 +22,7 @@
 		148710032011541C001FB01A /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148710022011541B001FB01A /* SWRevealViewController.m */; };
 		14871006201156A8001FB01A /* VC_Ext_Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14871005201156A8001FB01A /* VC_Ext_Menu.swift */; };
 		148710092012975F001FB01A /* CalloutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148710082012975F001FB01A /* CalloutViewController.swift */; };
+		1487100B2014361A001FB01A /* orlando.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1487100A2014361A001FB01A /* orlando.gpx */; };
 		D38DD8FE1BB3A539C5C72107 /* Pods_MarketMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9346488E5FC6983E1703F4D4 /* Pods_MarketMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		148710022011541B001FB01A /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		14871005201156A8001FB01A /* VC_Ext_Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC_Ext_Menu.swift; sourceTree = "<group>"; };
 		148710082012975F001FB01A /* CalloutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutViewController.swift; sourceTree = "<group>"; };
+		1487100A2014361A001FB01A /* orlando.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = orlando.gpx; sourceTree = "<group>"; };
 		9346488E5FC6983E1703F4D4 /* Pods_MarketMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8EE36E2EA95D5569D5C55DC /* Pods-MarketMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketMate/Pods-MarketMate.debug.xcconfig"; sourceTree = "<group>"; };
 		AAD8B35ADEF2C7E09623A1A0 /* Pods-MarketMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketMate/Pods-MarketMate.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				148710022011541B001FB01A /* SWRevealViewController.m */,
 				148710002011541B001FB01A /* MarketMate-Bridging-Header.h */,
 				1452B3C0200842AF008E6E73 /* Assets.xcassets */,
+				1487100A2014361A001FB01A /* orlando.gpx */,
 				1452B3C2200842AF008E6E73 /* LaunchScreen.storyboard */,
 				1452B3C5200842AF008E6E73 /* Info.plist */,
 				1452B3BD200842AF008E6E73 /* MarketMate.xcdatamodeld */,
@@ -203,6 +206,7 @@
 				1452B3C4200842AF008E6E73 /* LaunchScreen.storyboard in Resources */,
 				1452B3C1200842AF008E6E73 /* Assets.xcassets in Resources */,
 				1452B3BC200842AF008E6E73 /* Main.storyboard in Resources */,
+				1487100B2014361A001FB01A /* orlando.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,7 +5,7 @@
 //  Created by Sean Lohman on 1/19/18.
 //  Copyright © 2018 Sean Lohman. All rights reserved.
 //
-
+import MapKit
 import UIKit
 
 class CalloutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -24,17 +24,24 @@ class CalloutViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //makes sure everything is loaded when the view DID load
         setup()
-
-        //setting up a gesture recognizer for the address label
-        let tapped = UITapGestureRecognizer(target: self, action: Selector(("addressTapped")))
-        marketAddress.addGestureRecognizer(tapped)
+        
     }
     
-    func addressTapped(sender: UITapGestureRecognizer){
+    @objc func addressTapped(sender: UITapGestureRecognizer){
         print("address tapped!")
+        let placemark = MKPlacemark(coordinate: market.coordinate)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = market.title
+        mapItem.openInMaps(launchOptions: [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: MKCoordinateRegionMakeWithDistance(market.coordinate, CLLocationDistance(1000), CLLocationDistance(1000)).center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: MKCoordinateRegionMakeWithDistance(market.coordinate, CLLocationDistance(1000), CLLocationDistance(1000)).span)])
+        
     }
     
     func setup(){
+        //setting up a gesture recognizer for the address label
+        let tapped = UITapGestureRecognizer(target: self, action: #selector(CalloutViewController.addressTapped))
+        marketAddress.addGestureRecognizer(tapped)
+        marketAddress.isUserInteractionEnabled = true
+        
         //setting up the view
         var schedule: String!
         marketTitle.text = market.title
