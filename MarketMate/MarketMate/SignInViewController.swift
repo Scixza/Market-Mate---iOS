@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignInViewController: UIViewController {
     
@@ -18,8 +19,14 @@ class SignInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        
+//        var ref: DatabaseReference!
+//
+//        ref = Database.database().reference()
+//        
+//        ref.updateChildValues(["someValue": 123123])
     }
 
     
