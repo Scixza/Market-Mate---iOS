@@ -69,9 +69,6 @@ class CalloutViewController: UIViewController, UITableViewDelegate, UITableViewD
     func divideProducts(){
         let stringToDivide = market.products
         productArray = stringToDivide.components(separatedBy: ";")
-        for product in productArray{
-            print(product)
-        }
     }
     
     override func didReceiveMemoryWarning() {

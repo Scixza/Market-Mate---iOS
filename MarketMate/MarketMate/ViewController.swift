@@ -12,13 +12,13 @@ import CoreLocation
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
-
+    
     /* varber Variables */
     var usda: Array = [Market]()
     var broadMarket: Array = [BroadMarket]()
     var initalZip: String = ""
     let locationManager = CLLocationManager()
-
+    
     /* IBOutlets */
     @IBOutlet weak var MapKitView: MKMapView!
     @IBOutlet weak var hamburgerButton: UIBarButtonItem!
@@ -39,28 +39,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //initializing hamburger menu
         sideMenu()
         
-
-        //parsing USDA Database
-        //self.validateAndParseData(zip: initalZip)
         
     }
-    
-    //Centering Map on the initial location. TO:DO - get the users location and replace hardcoded location in ViewDidLoad
-//    func centerMapOnLocation(location: CLLocation) {
-//
-//    }
-    
-    //Requesting Access to users location as well as showing the users location on the map (Updated Info.plist Aswell)
-
-//    func checkLocationAuthorizationStatus() {
-//        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-//            MapKitView.showsUserLocation = true
-//            //Calling Method to display and zoom into the users location
-//            //centerMapOnLocation(location: MapKitView.userLocation.location!)
-//        } else {
-//            locationManager.requestWhenInUseAuthorization()
-//        }
-//    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
@@ -84,7 +64,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         self.validateAndParseData(zip: ("\(place.postalCode!)"))
                         self.initalZip = ("\(place.postalCode!)")
                     }
-
+                    
                     print(place.postalCode!)
                 }
                 
@@ -93,10 +73,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        //checkLocationAuthorizationStatus()
-    }
 
 }
 
