@@ -27,9 +27,15 @@ class SignInViewController: UIViewController {
 //        ref = Database.database().reference()
 //        
 //        ref.updateChildValues(["someValue": 123123])
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.noAccountFunction(sender:)))
+        
+        noAccount.addGestureRecognizer(gesture)
     }
 
-    
+    @objc func noAccountFunction(sender: UITapGestureRecognizer){
+        performSegue(withIdentifier: "signUp", sender: self)
+    }
 
     /*
     // MARK: - Navigation
