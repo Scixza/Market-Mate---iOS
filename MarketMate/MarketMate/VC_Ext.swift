@@ -18,7 +18,7 @@ extension ViewController{
         for market in usda{
             MapKitView.addAnnotation(market)
         }
-        
+        dismiss(animated: false, completion: nil)
     }
     
     //creating function to read in and parse the USDA API https://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html

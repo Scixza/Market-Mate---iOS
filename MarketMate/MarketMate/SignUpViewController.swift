@@ -21,10 +21,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
     
     /* IBACTIONS */
     @IBAction func SignUp(_ sender: Any) {
         print("signUp Touched")
+        
         
         guard let first = firstName.text, let last = lastName.text, let email = emailAddress.text, let pass = password.text
             else {
@@ -73,6 +75,9 @@ class SignUpViewController: UIViewController {
         print("SignUp WIth Google Touched")
     }
     
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {

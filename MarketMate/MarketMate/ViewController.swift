@@ -18,17 +18,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var broadMarket: Array = [BroadMarket]()
     var initalZip: String = ""
     let locationManager = CLLocationManager()
+    var tapped = false
     
     /* IBOutlets */
     @IBOutlet weak var MapKitView: MKMapView!
     @IBOutlet weak var hamburgerButton: UIBarButtonItem!
     
     /* IBActions */
+    @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
     
     /* Methods */
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //presenting loading screen while map loads
+        loading()
+        
         MapKitView.delegate = self
         locationManager.delegate = self
         //Getting the best accuracy for the user, aswell as starting to track the users location
@@ -71,6 +77,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
             
         }
+    }
+    
+    func loading(){
+        
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        
+        alert.view.tintColor = UIColor.green
+        
+        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50)) as UIActivityIndicatorView
+        loadingIndicator.color = UIColor.white
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        loadingIndicator.startAnimating();
+        
+        
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
     }
     
 

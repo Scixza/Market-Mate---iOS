@@ -11,22 +11,25 @@ import Firebase
 
 class SignInViewController: UIViewController {
     
+    /* IBOUTLETS */
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var noAccount: UILabel!
-    @IBOutlet weak var signIn: UIButton!
+    @IBOutlet weak var signInButton: UIButton!
     
-
+    /* IBACTIONS */
+    @IBAction func back(_ sender: Any) {
+        performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
+    }
+    
+    @IBAction func signIn(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
-//        var ref: DatabaseReference!
-//
-//        ref = Database.database().reference()
-//        
-//        ref.updateChildValues(["someValue": 123123])
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.noAccountFunction(sender:)))
         
@@ -36,15 +39,5 @@ class SignInViewController: UIViewController {
     @objc func noAccountFunction(sender: UITapGestureRecognizer){
         performSegue(withIdentifier: "signUp", sender: self)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
