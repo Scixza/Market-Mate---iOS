@@ -7,23 +7,25 @@
 //
 import MapKit
 import UIKit
+import Firebase
 
 class CalloutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var market: Market! = nil
-    var productArray = [String]()
+    var verifiedProducts = [String]()
+    var userCurrentList = [String]()
 
     @IBOutlet weak var marketTitle: UILabel!
     @IBOutlet weak var marketAddress: UILabel!
     @IBOutlet weak var marketHours: UITextView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noProducts: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         //makes sure everything is loaded when the view DID load
         setup()
+        tableView.tableFooterView = UIView()
         
     }
     
@@ -59,7 +61,6 @@ class CalloutViewController: UIViewController, UITableViewDelegate, UITableViewD
         marketHours.text = "Operating Hours: \n\n \(hours[0]) \(hours[1]) \(hours[2]) \n \(hours[3]) \(hours[4]) \(hours[5]) \(hours[6])"
         marketAddress.text = market.address
         
-        productArray.removeAll()
         divideProducts()
         
         //making the back button up top white
@@ -67,25 +68,68 @@ class CalloutViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func divideProducts(){
-        let stringToDivide = market.products
-        productArray = stringToDivide.components(separatedBy: ";")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let stringToDivide = market.products.components(separatedBy: "; ")
+        
+        for product in stringToDivide{
+            if !product.isEmpty{
+                verifiedProducts.append(product)
+            }
+        }
+        
+        if verifiedProducts.count < 1{
+            print("Empty Array")
+            noProducts.isHidden = false
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productArray.count
+        return verifiedProducts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "product", for: indexPath)
         
-            cell.textLabel?.text = productArray[indexPath.row]
+            cell.textLabel?.text = verifiedProducts[indexPath.row]
 
         return cell
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParentViewController {
+            
+            guard let uid = Auth.auth().currentUser?.uid else{return}
+            guard let name = market.title else{return}
+            if Auth.auth().currentUser?.uid != nil{
+                var ref: DatabaseReference!
+                ref =  Database.database().reference().child("users").child(uid).child("list").child(name)
+                
+                print(ref.key)
+            }
+            print("Will Move Called")
+            
+        }
+    }
+    
+
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        let addToList = UITableViewRowAction(style: .normal, title: "Add To List") { action, index in
+            
+            
+            guard let productName = tableView.cellForRow(at: index)?.textLabel?.text else {return}
+
+            
+            self.userCurrentList.append(productName)
+            print("\(productName) added to list")
+            print(index.row)
+            
+        }
+        
+        addToList.backgroundColor = .green
+        
+        return [addToList]
+    }
+    
 }

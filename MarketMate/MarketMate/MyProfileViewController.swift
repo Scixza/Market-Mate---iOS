@@ -11,6 +11,10 @@ import Firebase
 
 class MyProfileViewController: UIViewController {
 
+    var firebaseUser: Firebase.User?
+    let userID = Auth.auth().currentUser?.uid
+    let auth = Auth.auth()
+    var snapshot: DataSnapshot?
     
     /* IBOUTLETS */
     @IBOutlet weak var emailAddress: UITextField!
@@ -19,70 +23,127 @@ class MyProfileViewController: UIViewController {
     //Button Outlets
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var signOutButton: UIButton!
     
     
     /* IBACTIONS */
     @IBAction func backButton(_ sender: Any) {
-        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func EditAccount(_ sender: Any) {
-        
+        editButton.isEnabled = false
+        editButton.isHidden = true
+        saveButton.isHidden = false
+        saveButton.isEnabled = true
+        cancelButton.isHidden = false
+        cancelButton.isEnabled = true
+        emailAddress.isEnabled = true
     }
     
     @IBAction func cancelButton(_ sender: Any) {
+        editButton.isHidden = false
+        editButton.isEnabled = true
+        cancelButton.isHidden = true
+        cancelButton.isEnabled = false
+        saveButton.isHidden = true
+        saveButton.isEnabled = false
+        emailAddress.isEnabled = false
+        databasePull()
+    }
+    
+    @IBAction func saveButton(_ sender: Any) {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        guard let email = emailAddress.text else{return}
         
+        let ref = Database.database().reference().child("users").child(uid)
+        let values = ["email": email]
+        ref.updateChildValues(values) { (error, ref) in
+            if error != nil{
+                print(error!)
+                return
+            }
+            print("Updated user in Database")
+        }
+        
+        editButton.isHidden = false
+        editButton.isEnabled = true
+        cancelButton.isHidden = true
+        cancelButton.isEnabled = false
+        saveButton.isHidden = true
+        saveButton.isEnabled = false
+        emailAddress.isEnabled = false
     }
     
     @IBAction func signOut(_ sender: Any) {
-        
+        emailAddress.text?.removeAll()
+        firstName.text?.removeAll()
+        lastName.text?.removeAll()
+        logout()
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupViewController()
         if Auth.auth().currentUser?.uid == nil{
-            perform(#selector(logout), with: nil, afterDelay: 0.05)
+            //UIApplication.shared.beginIgnoringInteractionEvents()
+            perform(#selector(logout), with: nil, afterDelay: 0.1)
+        }else{
+            //UIApplication.shared.endIgnoringInteractionEvents()
+
+            //dismissing loading View
+            //self.dismiss(animated: false, completion: nil)
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        databasePull()
     }
     
+    func databasePull(){
+        if Auth.auth().currentUser?.uid != nil {
+        let uid = auth.currentUser?.uid
+        
+        let ref = Database.database().reference(withPath: "users").child(uid!)
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            
+            if !snapshot.exists() { return }
 
+            let email = snapshot.childSnapshot(forPath: "email").value as? String
+            let first = snapshot.childSnapshot(forPath: "firstname").value as? String
+            let last = snapshot.childSnapshot(forPath: "lastname").value as? String
+            
+            self.firstName.text = first
+            self.lastName.text = last
+            self.emailAddress.text = email
+            
+            print(snapshot.value!)
+            
+        })}
+    }
+    
+    func setupViewController(){
+        let uiItems = [firstName, lastName, emailAddress, editButton, cancelButton, saveButton, signOutButton] as [Any]
+        
+        //Looping through UI items, and setting a drop shadow on them, and rounded corners
+        for i in uiItems{
+            (i as AnyObject).layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+            (i as AnyObject).layer.shadowOffset = CGSize(width: 0, height: 3.0)
+            (i as AnyObject).layer.shadowOpacity = 1.0
+            (i as AnyObject).layer.shadowRadius = 0.0
+            (i as AnyObject).layer.masksToBounds = false
+            (i as AnyObject).layer.cornerRadius = 6.0
+        }
+    }
+    
+    
     //Handling User Logout
     @objc func logout(){
         do{ try Auth.auth().signOut() } catch let error{ print(error) }
         performSegue(withIdentifier: "signin", sender: self)
     }
-    
-    func loading(){
-        
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-        
-        alert.view.tintColor = UIColor.green
-        
-        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50)) as UIActivityIndicatorView
-        loadingIndicator.color = UIColor.white
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        loadingIndicator.startAnimating();
-        
-        
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     /* varber Variables */
     var usda: Array = [Market]()
@@ -101,7 +101,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
 
 // creating a callout for each annotation. Works like a table view cell, you have to create one, then deqeue it and reuse it!
-extension ViewController: MKMapViewDelegate {
+extension ViewController {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? Market else { return nil }
         let identifier = "marker"

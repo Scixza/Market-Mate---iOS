@@ -22,6 +22,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var cancelButton: UIButton!
     
     /* IBACTIONS */
     @IBAction func SignUp(_ sender: Any) {
@@ -42,10 +44,7 @@ class SignUpViewController: UIViewController {
             }
             
             //safely unwrapping UID from current User
-            guard let uid = self.userID
-            else{
-                return
-            }
+            guard let uid = Auth.auth().currentUser?.uid else{return}
             
             //successfully authenticated user
             print("Authenticated!")
@@ -65,16 +64,8 @@ class SignUpViewController: UIViewController {
             
         }
         
-        
-        //adding a firstname to users
-        //ref.child("users").child(deviceID).setValue(["firstname": firstName.text])
-        
     }
-    
-    @IBAction func signUpWithGoogle(_ sender: Any) {
-        print("SignUp WIth Google Touched")
-    }
-    
+
     @IBAction func cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -83,13 +74,22 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupViewController()
     }
     
+    func setupViewController(){
+        let uiItems = [signUpButton, firstName, lastName, emailAddress, password,confirmPassword, cancelButton, logo] as [Any]
+        
+        //Looping through UI items, and setting a drop shadow on them, and rounded corners
+        for i in uiItems{
+            (i as AnyObject).layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+            (i as AnyObject).layer.shadowOffset = CGSize(width: 0, height: 3.0)
+            (i as AnyObject).layer.shadowOpacity = 1.0
+            (i as AnyObject).layer.shadowRadius = 0.0
+            (i as AnyObject).layer.masksToBounds = false
+            (i as AnyObject).layer.cornerRadius = 6.0
+        }
+    }
 
     /*
     // MARK: - Firebase Market Adding Code
