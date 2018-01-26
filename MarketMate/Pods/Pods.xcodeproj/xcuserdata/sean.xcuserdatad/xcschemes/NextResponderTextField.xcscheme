@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B1C4AAFAF49036C7007633DAA3C806AD"
-               BuildableName = "GTMOAuth2.framework"
-               BlueprintName = "GTMOAuth2"
+               BlueprintIdentifier = "F6F8E273E7DBADDE69335D32F3FC4747"
+               BuildableName = "NextResponderTextField.framework"
+               BlueprintName = "NextResponderTextField"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B1C4AAFAF49036C7007633DAA3C806AD"
-            BuildableName = "GTMOAuth2.framework"
-            BlueprintName = "GTMOAuth2"
+            BlueprintIdentifier = "F6F8E273E7DBADDE69335D32F3FC4747"
+            BuildableName = "NextResponderTextField.framework"
+            BlueprintName = "NextResponderTextField"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

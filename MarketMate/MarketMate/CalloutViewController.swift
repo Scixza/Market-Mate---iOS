@@ -13,7 +13,7 @@ class CalloutViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var market: Market! = nil
     var verifiedProducts = [String]()
-    var userCurrentList = [String]()
+    var userCurrentDict = [String:String]()
 
     @IBOutlet weak var marketTitle: UILabel!
     @IBOutlet weak var marketAddress: UILabel!
@@ -46,18 +46,26 @@ class CalloutViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //setting up the view
         var schedule: String!
-        marketTitle.text = market.title
+        var title: String!
+
         for i in [";", "<br>"]{
             schedule = market.schedule.replacingOccurrences(of: i, with: "")
         }
         
         if schedule == "    "{
             schedule = "No Operating Hours currently found for market"
-            
         }
+        
+        title = market.title
+        
+        title = String(title.dropFirst(4))
+        
+        title = title.replacingOccurrences(of: ".", with: "")
+
         
         let hours = schedule.split{$0 == " "}
         
+        marketTitle.text = title
         marketHours.text = "Operating Hours: \n\n \(hours[0]) \(hours[1]) \(hours[2]) \n \(hours[3]) \(hours[4]) \(hours[5]) \(hours[6])"
         marketAddress.text = market.address
         
@@ -100,12 +108,16 @@ class CalloutViewController: UIViewController, UITableViewDelegate, UITableViewD
         if isMovingFromParentViewController {
             
             guard let uid = Auth.auth().currentUser?.uid else{return}
-            guard let name = market.title else{return}
+            guard let name = marketTitle.text else{return}
             if Auth.auth().currentUser?.uid != nil{
                 var ref: DatabaseReference!
-                ref =  Database.database().reference().child("users").child(uid).child("list").child(name)
+                ref =  Database.database().reference().child("users").child(uid).child("list").child(name.lowercased())
                 
-                print(ref.key)
+                
+                ref.updateChildValues(userCurrentDict, withCompletionBlock: { (error, ref) in
+                    
+                    print("Saved to database")
+                })
             }
             print("Will Move Called")
             
@@ -121,8 +133,8 @@ class CalloutViewController: UIViewController, UITableViewDelegate, UITableViewD
             guard let productName = tableView.cellForRow(at: index)?.textLabel?.text else {return}
 
             
-            self.userCurrentList.append(productName)
-            print("\(productName) added to list")
+            self.userCurrentDict["item \(index.row)"] = productName
+            print("Node: \(productName) : \(productName) has been added to the dictionary!")
             print(index.row)
             
         }

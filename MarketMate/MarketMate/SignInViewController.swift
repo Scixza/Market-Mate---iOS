@@ -34,14 +34,14 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
     @IBAction func signIn(_ sender: Any) {
         guard let email = emailAddress.text, let password = password.text
             else{
-                print("Form is not Valid")
+                self.errorHandeling(title: "Don't leave any text fields blank!", message: "Input has detected a blank text field. Make sure your information is correct and try again!", defualt: "ok", cancel: nil)
                 return
         }
         
         Auth.auth().signIn(withEmail: email, password: password, completion: {(firebaseUser, error) in
             
             if error != nil {
-                print(error!)
+                self.errorHandeling(title: "Error!", message: "\(String(describing: error?.localizedDescription))", defualt: "ok", cancel: nil)
                 return
             }
             self.dismiss(animated: true, completion: nil)
@@ -56,15 +56,15 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         setupViewController()
-
-        googleButton.frame = CGRect(x:88, y:497, width: view.frame.width / 1.87, height: 40)
+        self.hideKeyboardWhenTappedAround()
+        googleButton.frame = CGRect(x:88, y:575, width: signInButton.frame.width + 40, height: 40)
         googleButton.style = .wide
         view.addSubview(googleButton)
-        let margins = view.layoutMarginsGuide
+//let margins = view.layoutMarginsGuide
         
-        googleButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        googleButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-        googleButton.heightAnchor.constraint(equalTo: googleButton.widthAnchor, multiplier: 2.0).isActive = true
+//        googleButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+//        googleButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+//        googleButton.heightAnchor.constraint(equalTo: googleButton.widthAnchor, multiplier: 2.0).isActive = true
         
         //googleButton.addConstraint(signInButton.frame.midX)
 
@@ -81,7 +81,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         if error != nil {
-            print(error!)
+            self.errorHandeling(title: "Error", message: "\(String(describing: error?.localizedDescription))", defualt: "ok", cancel: nil)
             return
         }
         loading()
@@ -90,13 +90,13 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
         let credential = GoogleAuthProvider.credential(withIDToken: auth.idToken, accessToken: auth.accessToken)
         Auth.auth().signIn(with: credential) { (user, error) in
             if error != nil{
-                print(error!)
+                self.errorHandeling(title: "Error", message: "\(error!)", defualt: "ok", cancel: nil)
                 return
             }
 
             if Auth.auth().currentUser == nil{
                 //performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
-                print("failed to authenticate a google user")
+                self.errorHandeling(title: "Error", message: "Failed to authenticate google user", defualt: "ok", cancel: nil)
             }else{
                 
                 //safely unwrapping information about the current
@@ -116,7 +116,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
                             let values = ["firstname": name[0].description, "lastname": name[1].description, "email": email]
                             ref.updateChildValues(values, withCompletionBlock: { (err, ref) in
                                 if err != nil{
-                                    print(err!)
+                                    self.errorHandeling(title: "Error", message: "\(String(describing: error?.localizedDescription))", defualt: "ok", cancel: nil)
                                     return
                                 }
                                 self.dismiss(animated: false, completion: nil)
@@ -157,6 +157,17 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
             (i as AnyObject).layer.masksToBounds = false
             (i as AnyObject).layer.cornerRadius = 6.0
         }
+    }
+    
+    func errorHandeling(title: String, message: String, defualt: String, cancel: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: defualt, style: .default, handler: nil))
+        if cancel != nil{
+            alert.addAction(UIAlertAction(title: cancel, style: .cancel, handler: nil))
+        }
+        
+        self.present(alert, animated: true)
     }
     
 

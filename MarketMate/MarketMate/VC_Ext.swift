@@ -9,15 +9,22 @@
 import Foundation
 import MapKit
 import CoreLocation
+import Firebase
 
 extension ViewController{
     
     // Method to create new annotations and adding them to the map.
     func addMarkets(){
         //Adding the markets to the map
+        self.MapKitView.annotations.forEach {
+            if !($0 is MKUserLocation) {
+                self.MapKitView.removeAnnotation($0)
+            }
+        }
         for market in usda{
             MapKitView.addAnnotation(market)
         }
+        //Dismissing Loading View
         dismiss(animated: false, completion: nil)
     }
     
@@ -110,7 +117,7 @@ extension ViewController{
                                                     placemarks, error in
                                                     
                                                     if error != nil {
-                                                        print("Error gathering address")
+                                                        print("Error gathering address \(error!)")
                                                     }else{
                                                     let placemark = placemarks?.first
                                                     let lat = placemark?.location?.coordinate.latitude
@@ -118,9 +125,10 @@ extension ViewController{
                                                     // adding the Broad Market into the MarketInZip Array
                                                     self.usda.append(Market.init(name: i.marketName, id: i.id, address: address, products: products, schedule: schedule, coordinate: CLLocationCoordinate2D( latitude: lat!, longitude: lon!)))
                                                     
+                                                        
+                                                }
                                                     //Calling Method to Add markets to the MapView
                                                     self.addMarkets()
-                                                }
                                                 }
                                                 
                                                 

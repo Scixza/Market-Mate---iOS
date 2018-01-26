@@ -53,6 +53,7 @@ class MyProfileViewController: UIViewController {
         databasePull()
     }
     
+    
     @IBAction func saveButton(_ sender: Any) {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         guard let email = emailAddress.text else{return}
@@ -61,7 +62,7 @@ class MyProfileViewController: UIViewController {
         let values = ["email": email]
         ref.updateChildValues(values) { (error, ref) in
             if error != nil{
-                print(error!)
+                self.errorHandeling(title: "Error", message: error as! String, defualt: "ok", cancel: nil)
                 return
             }
             print("Updated user in Database")
@@ -97,6 +98,7 @@ class MyProfileViewController: UIViewController {
             //dismissing loading View
             //self.dismiss(animated: false, completion: nil)
         }
+        self.hideKeyboardWhenTappedAround()
         
     }
     
@@ -140,10 +142,21 @@ class MyProfileViewController: UIViewController {
         }
     }
     
+    func errorHandeling(title: String, message: String, defualt: String, cancel: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: defualt, style: .default, handler: nil))
+        if cancel != nil{
+            alert.addAction(UIAlertAction(title: cancel, style: .cancel, handler: nil))
+        }
+        
+        self.present(alert, animated: true)
+    }
+    
     
     //Handling User Logout
     @objc func logout(){
-        do{ try Auth.auth().signOut() } catch let error{ print(error) }
+        do{ try Auth.auth().signOut() } catch let error{ self.errorHandeling(title: "Error", message: error as! String, defualt: "ok", cancel: nil) }
         performSegue(withIdentifier: "signin", sender: self)
     }
 }

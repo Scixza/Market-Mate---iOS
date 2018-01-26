@@ -32,14 +32,14 @@ class SignUpViewController: UIViewController {
         
         guard let first = firstName.text, let last = lastName.text, let email = emailAddress.text, let pass = password.text
             else {
-                print("Invail Form")
+                self.errorHandeling(title: "Invaild Form", message: "one of your input fields drew an error, make sure none of them are empty!", defualt: "ok", cancel: nil)
                 return
         }
         
         Auth.auth().createUser(withEmail: email, password: pass) { (user: User? , error) in
             
             if error != nil{
-                print(error!)
+                self.errorHandeling(title: "Error", message: "\(String(describing: error?.localizedDescription))", defualt: "ok", cancel: nil)
                 return
             }
             
@@ -54,7 +54,7 @@ class SignUpViewController: UIViewController {
             let values = ["firstname": first, "lastname": last, "email": email]
             ref.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil{
-                    print(err!)
+                    self.errorHandeling(title: "Error", message: "\(String(describing: error?.localizedDescription))", defualt: "ok", cancel: nil)
                     return
                 }
                 self.dismiss(animated: true, completion: nil)
@@ -75,6 +75,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupViewController()
+        self.hideKeyboardWhenTappedAround()
     }
     
     func setupViewController(){
@@ -89,6 +90,16 @@ class SignUpViewController: UIViewController {
             (i as AnyObject).layer.masksToBounds = false
             (i as AnyObject).layer.cornerRadius = 6.0
         }
+    }
+    func errorHandeling(title: String, message: String, defualt: String, cancel: String?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: defualt, style: .default, handler: nil))
+        if cancel != nil{
+            alert.addAction(UIAlertAction(title: cancel, style: .cancel, handler: nil))
+        }
+        
+        self.present(alert, animated: true)
     }
 
     /*

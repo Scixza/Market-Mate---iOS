@@ -26,6 +26,10 @@
 		14871006201156A8001FB01A /* VC_Ext_Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14871005201156A8001FB01A /* VC_Ext_Menu.swift */; };
 		148710092012975F001FB01A /* CalloutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148710082012975F001FB01A /* CalloutViewController.swift */; };
 		1487100B2014361A001FB01A /* orlando.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1487100A2014361A001FB01A /* orlando.gpx */; };
+		14BAF5542019A830006F3D48 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BAF5532019A830006F3D48 /* TableViewController.swift */; };
+		14BAF5562019D41A006F3D48 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BAF5552019D41A006F3D48 /* DetailViewController.swift */; };
+		14BAF558201AD3D7006F3D48 /* UIViewController_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BAF557201AD3D7006F3D48 /* UIViewController_Ext.swift */; };
+		14BAF55A201AE2B7006F3D48 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BAF559201AE2B7006F3D48 /* AboutViewController.swift */; };
 		14CFB8132016C788001E3A5E /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFB8122016C788001E3A5E /* HamburgerViewController.swift */; };
 		14CFB8152016C8D2001E3A5E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFB8142016C8D2001E3A5E /* SignInViewController.swift */; };
 		14CFB8172016C919001E3A5E /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CFB8162016C919001E3A5E /* MyProfileViewController.swift */; };
@@ -56,6 +60,10 @@
 		14871005201156A8001FB01A /* VC_Ext_Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC_Ext_Menu.swift; sourceTree = "<group>"; };
 		148710082012975F001FB01A /* CalloutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutViewController.swift; sourceTree = "<group>"; };
 		1487100A2014361A001FB01A /* orlando.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = orlando.gpx; sourceTree = "<group>"; };
+		14BAF5532019A830006F3D48 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		14BAF5552019D41A006F3D48 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		14BAF557201AD3D7006F3D48 /* UIViewController_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController_Ext.swift; sourceTree = "<group>"; };
+		14BAF559201AE2B7006F3D48 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		14CFB8122016C788001E3A5E /* HamburgerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		14CFB8142016C8D2001E3A5E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		14CFB8162016C919001E3A5E /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +128,8 @@
 			children = (
 				1487100720115B73001FB01A /* Classes */,
 				14CFB8122016C788001E3A5E /* HamburgerViewController.swift */,
+				14BAF5552019D41A006F3D48 /* DetailViewController.swift */,
+				14BAF5532019A830006F3D48 /* TableViewController.swift */,
 				142223952018FA1A00EAA9EC /* MyMarketViewController.swift */,
 				147C246820179DD200FB87CF /* SignUpViewController.swift */,
 				14CFB8162016C919001E3A5E /* MyProfileViewController.swift */,
@@ -139,6 +149,8 @@
 				1452B3C5200842AF008E6E73 /* Info.plist */,
 				147C24662017961800FB87CF /* GoogleService-Info.plist */,
 				1452B3BD200842AF008E6E73 /* MarketMate.xcdatamodeld */,
+				14BAF557201AD3D7006F3D48 /* UIViewController_Ext.swift */,
+				14BAF559201AE2B7006F3D48 /* AboutViewController.swift */,
 			);
 			path = MarketMate;
 			sourceTree = "<group>";
@@ -278,6 +290,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/NextResponderTextField/NextResponderTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -286,6 +299,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NextResponderTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -302,16 +316,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				14CFB8172016C919001E3A5E /* MyProfileViewController.swift in Sources */,
+				14BAF5562019D41A006F3D48 /* DetailViewController.swift in Sources */,
 				14871006201156A8001FB01A /* VC_Ext_Menu.swift in Sources */,
 				1402CAE2200C1ADD000AB8E1 /* BroadMarket.swift in Sources */,
 				1452B3B9200842AF008E6E73 /* ViewController.swift in Sources */,
 				1402CAD6200C038B000AB8E1 /* VC_Ext.swift in Sources */,
 				142223962018FA1A00EAA9EC /* MyMarketViewController.swift in Sources */,
 				148710032011541C001FB01A /* SWRevealViewController.m in Sources */,
+				14BAF558201AD3D7006F3D48 /* UIViewController_Ext.swift in Sources */,
+				14BAF55A201AE2B7006F3D48 /* AboutViewController.swift in Sources */,
 				1452B3B7200842AF008E6E73 /* AppDelegate.swift in Sources */,
 				1452B3BF200842AF008E6E73 /* MarketMate.xcdatamodeld in Sources */,
 				147C246920179DD200FB87CF /* SignUpViewController.swift in Sources */,
 				14870FFF20102056001FB01A /* Annotation.swift in Sources */,
+				14BAF5542019A830006F3D48 /* TableViewController.swift in Sources */,
 				14CFB8152016C8D2001E3A5E /* SignInViewController.swift in Sources */,
 				1402CAD4200A90D9000AB8E1 /* Market.swift in Sources */,
 				14CFB8132016C788001E3A5E /* HamburgerViewController.swift in Sources */,

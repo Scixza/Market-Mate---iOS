@@ -29,6 +29,8 @@ class MyMarketViewController: UIViewController {
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var productField: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var zipField: UITextField!
+    @IBOutlet weak var zipLabel: UILabel!
     
     
     /* IBACTIONS */
@@ -40,8 +42,13 @@ class MyMarketViewController: UIViewController {
         
         let ref = Database.database().reference().child("users").child(uid).child("market")
         
+        let outterRef = Database.database().reference().child("markets").child(zipField.text!).child(nameField.text!)
+        
+        outterRef.removeValue()
+        
         ref.removeValue()
         
+        zipField.text?.removeAll()
         nameField.text?.removeAll()
         addressField.text?.removeAll()
         operatingField.text.removeAll()
@@ -65,6 +72,8 @@ class MyMarketViewController: UIViewController {
             let barButton = UIBarButtonItem(customView: rightButton)
             //assign button to navigationbar
             self.navigationItem.rightBarButtonItem = barButton
+            self.hideKeyboardWhenTappedAround()
+            self.setupViewController()
         
     }
     
@@ -83,16 +92,18 @@ class MyMarketViewController: UIViewController {
                 productField.isHidden = false
                 deleteButton.isHidden = true
                 deleteButton.isEnabled = false
+                zipField.isHidden = false
+                zipLabel.isHidden = false
                 
                 if rightButton.imageView?.image == #imageLiteral(resourceName: "Navigation_Create"){ //Create Market Data
                     print("Creating Market")
                     
                     guard let uid = Auth.auth().currentUser?.uid else {return}
-                    guard let name = nameField.text, let address = addressField.text, let hours = operatingField.text, let products = productField.text
+                    guard let name = nameField.text, let address = addressField.text, let hours = operatingField.text, let products = productField.text, let zip = zipField.text
                         else{return}
                     
                     let ref = Database.database().reference().child("users").child(uid).child("market")
-                    let values = ["name": name, "address": address, "operatinghours": hours, "products": products]
+                    let values = ["name": name, "address": address, "zip": zip, "operatinghours": hours, "products": products]
                     ref.updateChildValues(values) { (error, ref) in
                         if error != nil{
                             print(error!)
@@ -101,12 +112,23 @@ class MyMarketViewController: UIViewController {
                         print("Added market to Database")
                     }
                     
+                    let outterRef = Database.database().reference().child("markets").child(zip).child(name)
+                    let outterValues = [ "userUID": uid,"name": name, "address": address, "zip": zip, "operatinghours": hours, "products": products]
+                    outterRef.updateChildValues(outterValues) { (error, ref) in
+                        if error != nil{
+                            print(error!)
+                            return
+                        }
+                        print("added Market in outter market node")
+                    }
+                    
                     rightButton.setImage(UIImage(named: "Navigation_Edit"), for: UIControlState.normal)
                     checkSnapshot()
                     nameField.isEnabled = false
                     addressField.isEnabled = false
                     operatingField.isEditable = false
                     productField.isEditable = false
+                    zipField.isEnabled = true
                     
                     return
                 }else{ // if image is not set to Create
@@ -117,26 +139,37 @@ class MyMarketViewController: UIViewController {
             }else if hasMarket == true{ // Has Market
                 
                 
-                nameField.isEnabled = true
+                nameField.isEnabled = false
                 addressField.isEnabled = true
                 operatingField.isEditable = true
                 productField.isEditable = true
+                zipField.isEnabled = true
 
                 
                 if rightButton.imageView?.image == #imageLiteral(resourceName: "Navigation_Save") { // Save Market Data
                     
                     guard let uid = Auth.auth().currentUser?.uid else {return}
-                    guard let name = nameField.text, let address = addressField.text, let hours = operatingField.text, let products = productField.text
+                    guard let name = nameField.text, let address = addressField.text, let hours = operatingField.text, let products = productField.text, let zip = zipField.text
                         else{return}
                     
                     let ref = Database.database().reference().child("users").child(uid).child("market")
-                    let values = ["name": name, "address": address, "operatinghours":hours, "products": products]
+                    
+                    let values = ["name": name, "address": address, "zip": zip, "operatinghours":hours, "products": products]
                     ref.updateChildValues(values) { (error, ref) in
                         if error != nil{
                             print(error!)
                             return
                         }
                         print("Updated Market in Database")
+                    }
+                    let outterRef = Database.database().reference().child("markets").child(zip).child(name)
+                    let outterValues = [ "userUID": uid,"name": name, "address": address, "zip": zip, "operatinghours": hours, "products": products]
+                    outterRef.updateChildValues(outterValues) { (error, ref) in
+                        if error != nil{
+                            print(error!)
+                            return
+                        }
+                        print("updated Market in outter market node")
                     }
                     
                     rightButton.setImage(UIImage(named: "Navigation_Edit"), for: UIControlState.normal)
@@ -146,6 +179,7 @@ class MyMarketViewController: UIViewController {
                     productField.isEditable = false
                     deleteButton.isHidden = true
                     deleteButton.isEnabled = false
+                    zipField.isEnabled = false
                     
                     return
                     
@@ -177,6 +211,7 @@ class MyMarketViewController: UIViewController {
             self.setup()
             
             let name = snapshot.childSnapshot(forPath: "name").value as? String
+            let zip = snapshot.childSnapshot(forPath: "zip").value as? String
             let address = snapshot.childSnapshot(forPath: "address").value as? String
             let hours = snapshot.childSnapshot(forPath: "operatinghours").value as? String
             let products = snapshot.childSnapshot(forPath: "products").value as? String
@@ -185,6 +220,7 @@ class MyMarketViewController: UIViewController {
             self.addressField.text = address
             self.operatingField.text = hours
             self.productField.text = products
+            self.zipField.text = zip
             
         }
         
@@ -209,10 +245,26 @@ class MyMarketViewController: UIViewController {
             productField.isHidden = false
             productField.isEditable = false
             productField.isSelectable = false
+            zipLabel.isHidden = false
+            zipField.isHidden = false
+            zipField.isEnabled = false
             
         }else{ //Dont have a market
             //set image for button
             rightButton.setImage(UIImage(named: "Navigation_Add"), for: UIControlState.normal)
+        }
+    }
+    func setupViewController(){
+        let uiItems = [nameField, addressField, zipField, productField, operatingField,deleteButton, noMarketView] as [Any]
+        
+        //Looping through UI items, and setting a drop shadow on them, and rounded corners
+        for i in uiItems{
+            (i as AnyObject).layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+            (i as AnyObject).layer.shadowOffset = CGSize(width: 0, height: 3.0)
+            (i as AnyObject).layer.shadowOpacity = 1.0
+            (i as AnyObject).layer.shadowRadius = 0.0
+            (i as AnyObject).layer.masksToBounds = false
+            (i as AnyObject).layer.cornerRadius = 6.0
         }
     }
     
