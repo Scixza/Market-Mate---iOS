@@ -212,7 +212,7 @@ extension ViewController {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
         let market = view.annotation as! Market
-        
+        print(market.name)
         performSegue(withIdentifier: "callout", sender: market)
         
     }
